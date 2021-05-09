@@ -1,0 +1,1 @@
+docker_remote_host = "ssh://info@192.168.1.1:22"
