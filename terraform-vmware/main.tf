@@ -46,14 +46,14 @@ resource "esxi_guest" "vmtest1" {
 
   network_interfaces {
      virtual_network = "e2-PG"
-     mac_address = "0200.1111.1111"
+     mac_address = "00:20:11:11:11:11"
      nic_type = "vmxnet3"
     
   }
 
   network_interfaces {
     virtual_network = "e3-PG"
-    mac_address = "0200.1111.2222"
+    mac_address = "00:20:11:11:22:22"
     nic_type = "vmxnet3"
     
   }
@@ -83,14 +83,14 @@ resource "esxi_guest" "vmtest2" {
 
   network_interfaces {
      virtual_network = "e2-PG"
-     mac_address = "0200.2222.1111"
+     mac_address = "00:20:22:22:11:11"
      nic_type = "vmxnet3"
     
   }
 
   network_interfaces {
     virtual_network = "e3-PG"
-     mac_address = "0200.2222.2222"
+     mac_address = "00:20:22:22:22:22"
      nic_type = "vmxnet3"
     
   }
