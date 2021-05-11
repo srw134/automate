@@ -39,19 +39,21 @@ resource "esxi_guest" "vmtest1" {
   #ovf_source        = "/ubuntu-template/ubuntu-template.vmx"
 
   network_interfaces {
-    virtual_network = "e1-PG"
+    virtual_network = "VM Network"
     nic_type = "vmxnet3"
      
   }
 
   network_interfaces {
      virtual_network = "e2-PG"
-    nic_type = "vmxnet3"
+     mac_address = "0200.1111.1111"
+     nic_type = "vmxnet3"
     
   }
 
   network_interfaces {
     virtual_network = "e3-PG"
+    mac_address = "0200.1111.2222"
     nic_type = "vmxnet3"
     
   }
@@ -74,20 +76,22 @@ resource "esxi_guest" "vmtest2" {
   #ovf_source        = "/ubuntu-template/ubuntu-template.vmx"
 
   network_interfaces {
-    virtual_network = "e1-PG"
+    virtual_network = "VM Network"
     nic_type = "vmxnet3"
      
   }
 
   network_interfaces {
      virtual_network = "e2-PG"
-    nic_type = "vmxnet3"
+     mac_address = "0200.2222.1111"
+     nic_type = "vmxnet3"
     
   }
 
   network_interfaces {
     virtual_network = "e3-PG"
-    nic_type = "vmxnet3"
+     mac_address = "0200.2222.2222"
+     nic_type = "vmxnet3"
     
   }
 
