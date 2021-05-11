@@ -1,18 +1,13 @@
 interface GigabitEthernet1
- Test - "{'ip': '172.16.100.2', 'mask': 30}"
- ip address 172.16.100.2 255.255.255.252
  ip address 172.16.100.2 255.255.255.252
  no shutdown
 interface GigabitEthernet2
- Test - "{'ip': '172.16.100.10', 'mask': 30}"
- ip address 172.16.100.10 255.255.255.252
  ip address 172.16.100.10 255.255.255.252
  no shutdown
 interface GigabitEthernet3
- Test - "{'ip': '10.10.4.1', 'mask': 24}"
- ip address 10.10.4.1 255.255.255.0
  ip address 10.10.4.1 255.255.255.0
  no shutdown
+
 
 router bgp 65003
  network 10.10.4.0 mask 255.255.255.0

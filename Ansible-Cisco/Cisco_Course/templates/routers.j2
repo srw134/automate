@@ -12,6 +12,7 @@ interface {{ interface }}
 {% endif %}
 
 {# https://docs.ansible.com/ansible/latest/user_guide/playbooks_filters_ipaddr.html #}
+{# https://jinja.palletsprojects.com/en/2.11.x/templates/#}
 
 {% if bgp_config %}
 router bgp {{ bgp_config["local_as"] }}
