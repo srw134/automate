@@ -1,0 +1,10 @@
+ungrouped.testing.com
+
+[routers]
+r1.testing.com
+r2.testing.com
+10.10.10.1
+
+[switches]
+sw1.testing.com
+sw2.testing.com

@@ -1,0 +1,13 @@
+all:
+  hosts:
+  children:
+    labhosts:
+      hosts:
+        192.168.1.83:
+          ansible_network_os: cisco.ios.ios
+          ansible_connection: ansible.netcommon.network_cli
+          ansible_user: srw134
+          ansible_password: PassWord!
+          ansible_become: yes
+          ansible_become_method: enable
+          ansible_become_password: PassWord!

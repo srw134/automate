@@ -1,0 +1,16 @@
+all:
+  children:
+    dallas:
+      children:
+        routers:
+          hosts:
+            10.10.10.1: 
+            r1.testing.com: 
+            r2.testing.com: 
+        switches:
+          hosts:
+            sw1.testing.com: 
+            sw2.testing.com: 
+    ungrouped:
+      hosts:
+        ungrouped.testing.com:

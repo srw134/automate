@@ -1,0 +1,14 @@
+ungrouped.testing.com
+
+[all:vars]
+sample_username=admin
+sample_password=Password!
+
+[routers]
+r1.testing.com loopback=1.1.1.1
+r2.testing.com loopback=2.2.2.2
+10.10.10.1
+
+[switches]
+sw1.testing.com loopback=3.3.3.3 sample_username=administrator
+sw2.testing.com loopback=4.4.4.4

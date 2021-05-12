@@ -1,0 +1,22 @@
+all:
+  children:
+    routers:
+      hosts:
+        10.10.10.1: 
+        r1.testing.com:
+          loopback: 1.1.1.1
+        r2.testing.com: 
+          loopback: 2.2.2.2
+    switches:
+      hosts:
+        sw1.testing.com: 
+          loopback: 3.3.3.3
+          sample_username: administrator
+        sw2.testing.com: 
+          loopback: 4.4.4.4
+    ungrouped:
+      hosts:
+        ungrouped.testing.com: 
+  vars:
+    sample_username: admin
+    sample_password: PassWord!

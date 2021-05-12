@@ -1,0 +1,12 @@
+all:
+  children:
+    routers:
+      hosts:
+        10.10.10.1: 
+        r[1:2].testing.com: 
+    switches:
+      hosts:
+        sw[1:2].testing.com: 
+    ungrouped:
+      hosts:
+        ungrouped.testing.com: 
