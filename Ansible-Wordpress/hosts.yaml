@@ -1,0 +1,6 @@
+all:
+  hosts:
+  children:
+    labhosts:
+      hosts:
+        192.168.1.203:

@@ -1,0 +1,26 @@
+---
+- name: "INSTALL AND CONFIGURE WORDPRESS"
+  hosts: "labhosts"
+  gather_facts: no
+  become: True
+  tasks:
+    - name: "INSTALL MYSQL"
+      apt: name=mysql-server update_cache=yes
+
+    - name: "INSTALL WORDPRESS"
+      apt: name=wordpress
+
+    - name: "COPY SPECIFIC CONFIGURATION"
+      copy: src=000-default.conf dest=/etc/apache2/sites-available/000-default.conf
+
+    - name: CHANGE FILE/DIRECTORY OWNER TO WWW-DATA
+      ansible.builtin.file:
+        path: /usr/share/wordpress
+        owner: www-data
+        group: www-data
+        recurse: yes
+        
+    - name: RESTART APACHE
+      ansible.builtin.service:
+        name: apache2
+        state: restarted

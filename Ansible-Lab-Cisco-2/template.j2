@@ -1,0 +1,13 @@
+#jinja2: lstrip_blocks: True
+{% if interface_config %}
+{#{{ interface_config}}#}
+{% for interface, config in interface_config.items() %}
+{% set device_address = config["ip_address"] %}
+interface {{ interface }}
+  ip address {{ device_address.ip }} {{ device_address.mask }}
+  {% if device_address.state == True %}  no shutdown 
+  {% else %}  shutdown
+  {% endif %}
+!
+{% endfor %}
+{% endif %}

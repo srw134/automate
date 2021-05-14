@@ -1,0 +1,21 @@
+---
+- name: "LOAD AND PUSH ROUTER CONFIGURATIONS"
+  hosts: "labhosts"
+  gather_facts: no
+  tasks:
+    - name: "LOAD CONFIG VARIABLES"
+      include_vars:
+        file: "vars.yaml"
+        name: "interface_config"
+      delegate_to: "localhost"
+    
+    - name: "BUILD CONFIGURATION FOR DEVICES"
+      template:
+        src: "template.j2"
+        dest: "router-config"
+      delegate_to: "localhost"
+
+    - name: "PUSH CONFIGURATION TO DEVICES"
+      ios_config:
+        src: router-config
+        save_when: "changed"
