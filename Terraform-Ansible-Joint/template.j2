@@ -1,0 +1,24 @@
+#jinja2: lstrip_blocks: True
+{% if router_config %}
+{% for first, second in router_config.items() %}
+{% if first == "Global"%}
+hostname {{  second["parameters"]["hostname"]  }}
+ip domain name {{  second["parameters"]["domain-name"]  }}
+{% else %}
+{% for inner_first, inner_second in second.items() %}
+{% set address_config = inner_second["ip_address"] %}
+interface {{  inner_first  }}
+{#Must be indented#}
+  ip address {{  address_config.ip  }} {{  address_config.mask  }}
+{% if address_config.state == True %}
+{#Must be indented#}
+  no shutdown
+{% else %}
+{#Must be indented#}
+  shutdown
+{% endif %}
+{% endfor%}
+{% endif %}
+{% endfor %}
+{% endif %}
+crypto key generate rsa modulus 2048

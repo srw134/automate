@@ -1,6 +1,9 @@
 ---
 - name: "INSTALL AND CONFIGURE WORDPRESS"
   hosts: "labhosts"
+  vars:
+    apache_user: www-data
+    apache_group: www-data
   gather_facts: no
   become: True
   tasks:
@@ -12,14 +15,17 @@
 
     - name: "COPY SPECIFIC CONFIGURATION"
       copy: src=000-default.conf dest=/etc/apache2/sites-available/000-default.conf
+      notify:
+      - RESTART APACHE
 
     - name: CHANGE FILE/DIRECTORY OWNER TO WWW-DATA
       ansible.builtin.file:
         path: /usr/share/wordpress
-        owner: www-data
-        group: www-data
+        owner: "{{  apache_user }}"
+        group: "{{  apache_group }}"
         recurse: yes
-        
+
+  handlers:
     - name: RESTART APACHE
       ansible.builtin.service:
         name: apache2

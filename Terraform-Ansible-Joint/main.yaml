@@ -1,0 +1,22 @@
+---
+- name: "LOAD AND PUSH ROUTER CONFIGURATIONS"
+  hosts: "labhosts"
+  gather_facts: no
+  tasks:
+    - name: "LOAD CONFIG VARIABLES"
+      include_vars:
+        file: "{{ inventory_hostname }}_vars.yaml"
+        name: "router_config"
+      delegate_to: "localhost"
+
+    - name: "BUILD CONFIGURATION FOR DEVICES"
+      template:
+        src: "template.j2"
+        dest: "router-config_{{ inventory_hostname }}"
+      delegate_to: "localhost"
+
+#Could be modified to become a handler based on whether the configuration changed
+    - name: "PUSH CONFIGURATION TO DEVICES"
+      ios_config:
+        src: "router-config_{{ inventory_hostname }}"
+        save_when: "changed"

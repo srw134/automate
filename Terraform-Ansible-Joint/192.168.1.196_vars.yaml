@@ -1,0 +1,16 @@
+---
+Global:
+  parameters:
+    hostname: R2
+    domain-name: testing.com
+Interfaces: 
+  GigabitEthernet2:
+    ip_address:
+      ip: "10.20.1.2"
+      mask: 255.255.255.0
+      state: True
+  GigabitEthernet3:
+    ip_address:
+      ip: "10.30.1.2"
+      mask: 255.255.255.0
+      state: True
