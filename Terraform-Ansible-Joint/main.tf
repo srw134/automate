@@ -98,3 +98,15 @@ resource "esxi_guest" "vmtest2" {
   }
 
 }
+
+resource "null_resource" "ansible" {
+
+  provisioner "local-exec" {
+    command = "ANSIBLE_HOST_KEY_CHECKING=False ansible-playbook -i hosts.yaml main.yaml"
+  }
+
+  depends_on = [
+    esxi_guest.vmtest1, esxi_guest.vmtest2
+  ]
+
+}

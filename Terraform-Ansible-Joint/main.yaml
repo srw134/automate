@@ -15,6 +15,12 @@
         dest: "router-config_{{ inventory_hostname }}"
       delegate_to: "localhost"
 
+    - name: Wait for system to become reachable
+      wait_for:
+        host: "{{ inventory_hostname }}"
+        port: 22
+        state: started
+
 #Could be modified to become a handler based on whether the configuration changed
     - name: "PUSH CONFIGURATION TO DEVICES"
       ios_config:

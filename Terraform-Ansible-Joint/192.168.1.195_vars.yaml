@@ -3,6 +3,10 @@ Global:
   parameters:
     hostname: R1
     domain-name: testing.com
+    ospf: True
+    ospf_process_id: 10
+    ospf_networks: 0.0.0.0 0.0.0.0
+    ospf_area: 0
 Interfaces:  
   GigabitEthernet2:
     ip_address:

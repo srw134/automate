@@ -4,6 +4,11 @@
 {% if first == "Global"%}
 hostname {{  second["parameters"]["hostname"]  }}
 ip domain name {{  second["parameters"]["domain-name"]  }}
+{% if second["parameters"]["ospf"] == True %}
+router ospf {{ second["parameters"]["ospf_process_id"]  }}
+  network {{ second["parameters"]["ospf_networks"]  }} area {{  second["parameters"]["ospf_area"]  }}
+  passive-interface gigabitEthernet 1
+{% endif %}
 {% else %}
 {% for inner_first, inner_second in second.items() %}
 {% set address_config = inner_second["ip_address"] %}
