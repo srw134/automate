@@ -7,7 +7,7 @@ terraform {
 }
 
 #provider "docker" {
-#  host = var.docker.remote.host
+#  host = var.docker_remote_host
 #}
 
 resource "docker_image" "mysql" {
